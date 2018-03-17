@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Dashboard Template for Bootstrap</title>
+    <title>Dashboard</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../../../../dist/css/bootstrap.min.css" rel="stylesheet">
@@ -19,6 +19,7 @@
   <body>
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
         <img class= "navbar-brand col-sm-2 col-md-1 mr-0" src="images/stacknote.png">
+      <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
           <a class="nav-link" href="../cover/index.html">Sign Out</a> 
@@ -44,6 +45,7 @@
                   Projects
                 </a>
               </li>
+             
               <li class="nav-item">
                 <a class="nav-link" href="#">
                   <span data-feather="users"></span>
@@ -74,7 +76,7 @@
               <li class="nav-item">
                 <a class="nav-link" href="#">
                   <span data-feather="file-text"></span>
-                  No Name
+                  Current month
                 </a>
               </li>
               <li class="nav-item">
@@ -105,8 +107,6 @@
             <div class="btn-toolbar mb-2 mb-md-0">
               <div class="btn-group mr-2">
                 <a class="btn btn-sm btn-outline-secondary" href="../upload/index.html">Import</a> 
-
-                <button class="btn btn-sm btn-outline-secondary">Create</button>
               </div>
               <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
                 <span data-feather="calendar"></span>
@@ -117,7 +117,7 @@
 
           <canvas class="my-4" id="myChart" width="900" height="380"></canvas>
 
-          <h2>Portfolios</h2>
+          <h2>Uploads</h2>
           <div class="table-responsive">
             <table class="table table-striped table-sm">
               <thead>
@@ -131,11 +131,11 @@
               </thead>
               
                 <tr>
-                  <td>abasu924@gmail.com</td>
-                  <td>Akash Basu</td>
-                  <td>File</td>
-                  <td>No Name</td>
-                  <td>3/17/18</td>
+                  <td>None</td>
+                  <td>None</td>
+                  <td>None</td>
+                  <td>None</td>
+                  <td>None</td>
                 </tr>
               </tbody>
             </table>
@@ -163,12 +163,11 @@
     <script>
       var ctx = document.getElementById("myChart");
       var myChart = new Chart(ctx, {
-    
         type: 'line',
         data: {
           labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
           datasets: [{
-            data: [0, 0, 0, 0, 0, 0, 1],
+            data: [0, 0, 0, 0, 0, 0, 0],
             lineTension: 0,
             backgroundColor: 'transparent',
             borderColor: '#007bff',
