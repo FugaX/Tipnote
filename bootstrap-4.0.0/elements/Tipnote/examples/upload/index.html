@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Sticky Footer Template for Bootstrap</title>
+    <title>Portfolio Upload</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../../../../dist/css/bootstrap.min.css" rel="stylesheet">
@@ -17,15 +17,24 @@
   </head>
 
   <body>
-
+      <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+          <img class= "navbar-brand col-sm-2 col-md-1 mr-0" src="images/stacknote.png">
+        <ul class="navbar-nav px-3">
+          <li class="nav-item text-nowrap">
+            <a class="nav-link" href="../cover/index.html">Sign Out</a> 
+  
+          </li>
+        </ul>
+      </nav>
+  
     <!-- Begin page content -->
     <main role="main" class="container">
-      <h1 class="mt-5">BamBoard Upload</h1>
+
       <p class="lead">Please select a file from your computer to upload to your portfolio.</p>
        <form action = "myform.cgi">
           <input type="file" id="fileupload"/>
          <label for = "fileupload">Select a file</label>
-         <a class="btn btn-lg btn-primary"  role="button">Submit &raquo;</a>
+         <a class="btn btn-lg btn-secondary">Submit</a>
         </form>
       </main>
 
@@ -67,7 +76,7 @@
                   var file = e.target.files[0];
                   var storageRef = firebase.storage().ref(file.name);
                   storageRef.put(file);
-                  window.location.href = "../website/profile.html";
+                  window.location.href = "../upload/uploadfinish.html";
               });  
               
         /*var file = document.getElementById('fileupload');// use the Blob or File API
