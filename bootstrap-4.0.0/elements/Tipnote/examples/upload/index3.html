@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Portfolio Upload</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="sticky-footer.css" rel="stylesheet">
+  </head>
+
+  <body>
+      <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+          <img class= "navbar-brand col-sm-2 col-md-1 mr-0" src="images/stacknote.png">
+        <ul class="navbar-nav px-3">
+          <li class="nav-item text-nowrap">
+            <a class="nav-link" href="../cover/index.html">Sign Out</a> 
+  
+          </li>
+        </ul>
+      </nav>
+  
+    <!-- Begin page content -->
+    <main role="main" class="container">
+
+      <p class="lead">Please select a file from your computer to upload to your portfolio.</p>
+       <form action = "myform.cgi">
+          <input type="file" id="fileupload"/>
+         <label for = "fileupload">Select a file</label>
+         <a class="btn btn-lg btn-secondary">Submit</a>
+        </form>
+      </main>
+
+    <footer class="footer">
+      <div class="container">
+      </div>
+    </footer>
+  </body>
+
+  <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyBP5hokH9tgcofiGIF3BefjAw6yIidxhho",
+      authDomain: "bamboardart.firebaseapp.com",
+      databaseURL: "https://bamboardart.firebaseio.com",
+      projectId: "bamboardart",
+      storageBucket: "bamboardart.appspot.com",
+      messagingSenderId: "772859162551"
+    };
+    firebase.initializeApp(config);
+    const ref = firebase.storage().ref();
+    // Create a root reference
+      var storageRef = firebase.storage().ref();
+
+      // Create a reference to 'mountains.jpg'
+      var mountainsRef = storageRef.child('mountains.jpg');
+
+      // Create a reference to 'images/mountains.jpg'
+      var mountainImagesRef = storageRef.child('images/mountains.jpg');
+
+      // While the file names are the same, the references point to different files
+      mountainsRef.name === mountainImagesRef.name            // true
+      mountainsRef.fullPath === mountainImagesRef.fullPath    // false
+      </script>
+      <script>
+              var fileButton = document.getElementById("fileupload");
+              fileButton.addEventListener('change', function(e){
+                  var file = e.target.files[0];
+                  var storageRef = firebase.storage().ref(file.name);
+                  storageRef.put(file);
+                  window.location.href = "../upload/uploadfinish3.html";
+              });  
+              
+        /*var file = document.getElementById('fileupload');// use the Blob or File API
+        var file_data = file.prop('files')[0];
+        console.log(file);
+              ref.child('images/' + file.name).put(file_data).then(function (snapshot) {
+                console.log('Uploaded a blob or file!');
+              });
+            }*/
+      
+  </script>
+</html>
